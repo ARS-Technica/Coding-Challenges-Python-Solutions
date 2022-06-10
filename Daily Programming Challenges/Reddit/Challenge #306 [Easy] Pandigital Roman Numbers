@@ -39,3 +39,21 @@ if __name__ == '__main__':
 
 
 #%%
+
+# choice1 ('CD', 400) or ('DC', 600)
+# choice2 ('LX', 60) or ('XL', 40)
+# choice3 ('IV', 4) or ('VI', 6)
+
+import itertools
+
+def pandigital():   
+    choices = [[1000], [400, 600], [60, 40], [4, 6]]
+    return sorted([sum(nums) for nums in list(itertools.product(*choices))])
+
+
+if __name__ == '__main__':
+    print(pandigital())                                                 
+    # 1444, 1446, 1464, 1466, 1644, 1646, 1664, 1666
+
+
+#%%
