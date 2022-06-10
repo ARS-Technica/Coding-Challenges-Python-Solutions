@@ -43,9 +43,3 @@ if __name__ == '__main__':
     print(numcompare("MDCLXV", "MDCLXVI"))                                      # true
     print(numcompare("MM", "MDCCCCLXXXXVIIII"))                                 # false
 
-
-#%%
-
-
-
-    
