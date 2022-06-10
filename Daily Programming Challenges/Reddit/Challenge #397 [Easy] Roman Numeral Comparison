@@ -17,3 +17,34 @@ numcompare("MM", "MDCCCCLXXXXVIIII") => false
 You only need to correctly handle the case where there are at most 1 each of D, L, and V, and at most 4 each of C, X, and I. You don't need to validate the input, but you can if you want. Any behavior for invalid inputs like numcompare("V", "IIIIIIIIII") is fine - true, false, or error.
 """
 
+
+def roman_to_int(s):
+    numvals = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000,}
+    result = 0
+    
+    for i in range(0, len(s) - 1):        
+        if numvals[s[i]] < numvals[s[i+1]]:
+            result -= numvals[s[i]]   
+        else:
+            result += numvals[s[i]]
+    
+    result += numvals[s[-1]]
+    return result
+
+def numcompare(x, y):
+    return roman_to_int(x) < roman_to_int(y)
+
+if __name__ == '__main__':
+    print(numcompare("I", "I"))                                                 # false
+    print(numcompare("I", "II"))                                                # true
+    print(numcompare("II", "I"))                                                # false
+    print(numcompare("V", "IIII"))                                              # false
+    print(numcompare("MDCLXV", "MDCLXVI"))                                      # true
+    print(numcompare("MM", "MDCCCCLXXXXVIIII"))                                 # false
+
+
+#%%
+
+
+
+    
