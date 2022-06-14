@@ -34,6 +34,25 @@ if __name__ == '__main__':
     print(productArray([3, 2, 1]))          #[2, 3, 6]
 
 
+#%%
 
+
+# Better solution.  Not mine.
+# https://codereview.stackexchange.com/questions/213214/return-array-with-products-of-old-array-except-i
+
+def coding_solution(_arr):
+    new_arr = []
+    for n in range(len(_arr)):
+        v = 1
+        for m, x in enumerate(_arr):
+            if m != n:
+                v *= x 
+            else:
+                v *= 1
+        new_arr.append(v)
+    return np.array(new_arr)
+
+
+#%%
 
 
