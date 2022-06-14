@@ -56,3 +56,19 @@ def coding_solution(_arr):
 #%%
 
 
+import numpy 
+
+def arrayProduct(arr):
+    prod = numpy.prod(arr)
+
+    new_arr = []
+
+    for n in range(len(arr)):
+        new_arr.append(int(prod / arr[n]))       
+        
+    return new_arr
+
+
+if __name__ == '__main__':
+    print(arrayProduct([1, 2, 3, 4, 5]))    #[120, 60, 40, 30, 24]
+    print(arrayProduct([3, 2, 1]))          #[2, 3, 6]
