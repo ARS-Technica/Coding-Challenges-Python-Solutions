@@ -41,6 +41,37 @@ Constraints:
 class Solution:	
     #Function to reverse every sub-array group of size k.
     def reverseInGroups(arr, N, K):
+        result = []
+
+        for i in range(0, len(arr), K):
+            result.append(arr[i:i+K][::-1])
+
+        '''
+        return [j for i in result for j in i]
+        '''
+        '''
+        for i in result:
+            for j in i:
+                print(j)
+        '''
+        
+        arr = [j for i in result for j in i]
+        print(arr)
+
+
+if __name__ == "__main__":
+    print(Solution.reverseInGroups([1, 2, 3, 4, 5], 5, 3))                              # 3 2 1 5 4
+    print(Solution.reverseInGroups([5, 6, 8, 9], 4, 3))                                 # 8 6 5 9
+
+
+# Failed.
+
+#%%
+
+
+class Solution:	
+    #Function to reverse every sub-array group of size k.
+    def reverseInGroups(arr, N, K):
         idx = 0
 
         while idx + K < N:
@@ -54,3 +85,6 @@ class Solution:
 if __name__ == "__main__":
     print(Solution.reverseInGroups([1, 2, 3, 4, 5], 5, 3))                              # 3 2 1 5 4
     print(Solution.reverseInGroups([5, 6, 8, 9], 4, 3))                                 # 8 6 5 9
+
+# Problem Solved Successfully
+# First attempt.  100% accuracy.
