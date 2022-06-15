@@ -53,3 +53,41 @@ if __name__ == '__main__':
 # 435 /  200150     Time Limit Exceeded
 
 #%% 
+
+
+class Solution:
+    def findNum(n):
+        def check(middle, n):
+            count = 0
+            fact = 5 
+
+            while fact <= middle:
+                count += middle // fact
+                fact *= 5
+
+            return (count >= n)
+
+
+        left = 0 
+        right = 5 * n 
+
+        while left < right:
+            middle = (left + right) // 2
+
+            if check(middle, n):
+                right = middle 
+            else:
+                left = middle + 1
+
+        return left
+
+
+if __name__ == '__main__':
+    print(Solution.findNum(1))      # 5
+    print(Solution.findNum(6))      # 25
+    print(Solution.findNum(25))     # 105
+    print(Solution.findNum(26))     # 110
+
+
+# Problem Solved Successfully
+# Fourth attempt.
