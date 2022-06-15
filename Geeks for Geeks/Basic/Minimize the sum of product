@@ -53,11 +53,30 @@ Constraints:
 
 class Solution:
     def minValue(a, b, n):
-        return sum([i[0] * i[1] for i in zip(sorted(a), reversed(sorted(b)))])
+        a = sorted(a)
+        b = sorted(b)[::-1]
+        
+        result = 0
+
+        for i in range(n):
+            result += (a[i] * b[i])
+
+        return result
+
 
 if __name__ == "__main__":
     print(Solution.minValue([3, 1, 1], [6, 5, 4], 3))                           # 23 
     print(Solution.minValue([6, 1, 9, 5, 4], [3, 4, 8, 2, 4], 5))               # 80
 
 
+#%%
+
+
+class Solution:
+    def minValue(a, b, n):
+        return sum([i[0] * i[1] for i in zip(sorted(a), reversed(sorted(b)))])
+
+if __name__ == "__main__":
+    print(Solution.minValue([3, 1, 1], [6, 5, 4], 3))                           # 23 
+    print(Solution.minValue([6, 1, 9, 5, 4], [3, 4, 8, 2, 4], 5))               # 80
 
