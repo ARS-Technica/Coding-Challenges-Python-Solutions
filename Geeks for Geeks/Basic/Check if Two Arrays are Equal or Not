@@ -55,3 +55,37 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+# The more complex answer that they actually wanted.
+
+class Solution:
+    #Function to check if two arrays are equal or not.
+    def check(A,B,N):
+        
+        #return: True or False
+        
+        frequency = {}
+        
+        for idx in range(N):
+            if A[idx] in frequency.keys():
+                frequency[A[idx]] += 1
+            else:
+                frequency[A[idx]] = 1
+
+        for idx in range(N):
+            if B[idx] not in frequency.keys():
+                return False
+            else:
+                frequency[A[idx]] -= 1
+
+        for key in frequency.keys():
+            if frequency[key] != 0:
+                return False
+
+        return True
+
+
+if __name__ == "__main__":
+    print(Solution.check([1, 2, 5, 4, 0], [2, 4, 5, 0, 1], 5))              # True 
+    print(Solution.check([1, 2, 5], [2, 4, 15], 3))                         # False
