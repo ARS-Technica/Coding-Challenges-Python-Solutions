@@ -52,3 +52,16 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def MissingNumber(array, n):
+        complete = [num for num in range(1, n + 1) if num not in array][0]
+        return complete
+
+
+if __name__ == "__main__":
+    print(Solution.MissingNumber([1,2,3,5], 5))                            # 4
+    print(Solution.MissingNumber([6,1,2,8,3,4,7,10,5], 10))                # 9
+    print(Solution.MissingNumber([1,2,3,5], 5))                            # 4    
+
