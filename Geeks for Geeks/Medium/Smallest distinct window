@@ -87,5 +87,36 @@ if __name__ == "__main__":
 #%%
 
 
+class Solution:
+    def findSubString(str):
+        chars = len(set(str))
+        freq = {}
+        left = 0
+        result = float('inf')
 
+
+        for idx, letter in enumerate(str):
+            if letter in freq.keys():
+                freq[letter] += 1
+            else:
+                freq[letter] = 1
+
+            while len(freq) == chars:
+                result = min(result, (idx-left) + 1)
+                left_most = str[left]
+                left += 1
+                freq[left_most] -= 1
+
+                if freq[left_most] == 0:
+                    del freq[left_most]
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution.findSubString("AABBBCBBAC"))                            # 3     "BAC"
+    print(Solution.findSubString("aaab"))                                  # 2     "ab"    
+    print(Solution.findSubString("GEEKSGEEKSFOR"))                         # 8     "GEEKSFOR"
+
+# Passed
 
