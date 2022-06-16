@@ -43,3 +43,49 @@ Constraints:
 1 ≤ |S| ≤ 105
 String may contain both type of English Alphabets.
 """
+
+
+import collections 
+
+class Solution:
+    def findSubString(str):
+        chars = set(str)
+        
+        counter = collections.Counter(chars)
+        count, start, end, res = len(chars), 0, 0, [float('inf'), 0]
+        
+        while end < len(str):
+            counter[str[end]] -= 1
+            # consider duplicate char in t
+            if counter[str[end]] >= 0:
+                count -= 1
+            end += 1
+            
+            # valid in while
+            while count == 0:
+                # update minimum here, inner while loop
+                if end - start < res[0]:
+                    res = (end - start, start)
+                    
+                counter[str[start]] += 1
+                if counter[str[start]] > 0:
+                    count += 1
+                start += 1
+    
+        return len(str[res[1]:res[0] + res[1]]) if res[0] != float('inf') else 0
+
+
+if __name__ == "__main__":
+    print(Solution.findSubString("AABBBCBBAC"))                            # 3     "BAC"
+    print(Solution.findSubString("aaab"))                                  # 2     "ab"    
+    print(Solution.findSubString("GEEKSGEEKSFOR"))                         # 8     "GEEKSFOR"
+
+# Test Cases Passed: 35 /  140
+# Time Limit Exceeded
+
+
+#%%
+
+
+
+
