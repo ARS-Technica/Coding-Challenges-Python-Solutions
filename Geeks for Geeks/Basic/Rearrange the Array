@@ -36,3 +36,16 @@ Constraints:
 1 <= n <= 105
 1 <= arr[i] <=106
 """
+
+
+class Solution:
+    def rearrangeArray(arr, n):
+        arr = sorted(arr)
+        return [j for i in zip(arr, reversed(arr)) for j in i][:n]
+
+
+if __name__ == "__main__":
+    print(Solution.rearrangeArray([1, 9, 2, 8, 3, 7, 4, 6, 5], 9))                   # 1 9 2 8 3 7 4 6 5
+    print(Solution.rearrangeArray([1, 2, 3, 4], 4))                                  # 1 4 2 3
+    print(Solution.rearrangeArray([3, 3, 11, 15, 20, 11, 6, 5, 15, 1, 19], 11))      # 1 20 3 19 3 15 5 15 6 11 11
+
