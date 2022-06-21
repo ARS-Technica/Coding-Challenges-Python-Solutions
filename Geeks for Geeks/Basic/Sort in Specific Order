@@ -42,3 +42,16 @@ Constraints:
 0 <= Ai <= 1018
 """
 
+
+class Solution:
+    def sortIt(arr, n):
+        arr = sorted(arr)
+        odd = [i for i in arr if i % 2 != 0][::-1] 
+        even = [i for i in arr if i % 2 == 0] 
+        odd.extend(even)
+        arr = odd 
+
+
+if __name__ == "__main__":
+    print(Solution.sortIt([1, 2, 3, 5, 4, 7, 10], 7))                   # 7 5 3 1 2 4 10
+    print(Solution.sortIt([0, 4, 5, 3, 7, 2, 1], 7))                    # 7 5 3 1 0 2 4
