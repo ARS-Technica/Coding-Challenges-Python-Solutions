@@ -88,3 +88,34 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def magicalString(S):
+        result = ''
+
+        for char in S:
+            result += chr(219 - ord(char))
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution.magicalString("varun"))                              # "ezifm"
+    print(Solution.magicalString("akshay"))                             # "zphszb"
+
+
+#%%
+
+
+class Solution:
+    def magicalString(S):
+        return ''.join([chr(219 - ord(char)) for char in S])
+
+
+if __name__ == "__main__":
+    print(Solution.magicalString("varun"))                              # "ezifm"
+    print(Solution.magicalString("akshay"))                             # "zphszb"
+
+
+#%%
