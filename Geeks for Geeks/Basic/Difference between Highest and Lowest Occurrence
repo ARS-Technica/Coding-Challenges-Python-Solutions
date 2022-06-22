@@ -48,3 +48,18 @@ Constraints:
 """
 
 
+from collections import Counter
+
+class Solution:
+    def findDiff(a, n):
+        freq = Counter(a)
+        # Most common: print(freq.most_common()[0], freq.most_common()[0][1])
+        # Least common: print(freq.most_common()[-1], freq.most_common()[-1][1])
+        return (freq.most_common()[0][1] - freq.most_common()[-1][1]) if len(freq) > 1 else 0
+
+
+if __name__ == "__main__":
+    print(Solution.findDiff([1, 2, 2], 3))                                         # 1
+    print(Solution.findDiff([7, 8, 4, 5, 4, 1, 1, 7, 7, 2, 5], 11))                # 2
+    print(Solution.findDiff([1, 1, 1, 3, 3, 3], 6))                                # 0
+
