@@ -91,6 +91,29 @@ if __name__ == "__main__":
 
 
 class Solution:
+    def magicalString (S):
+        result = ''
+        alphabet = 'abcdefghijklmnopqrstuvwxyz'
+        alphabet = list(alphabet)
+        reverse_alphabet = alphabet[::-1]
+
+        for char in S:
+            if char in alphabet:
+                a = alphabet.index(char)
+                result = result + reverse_alphabet[a]
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution.magicalString("varun"))                              # "ezifm"
+    print(Solution.magicalString("akshay"))                             # "zphszb"
+
+
+#%%
+
+
+class Solution:
     def magicalString(S):
         result = ''
 
