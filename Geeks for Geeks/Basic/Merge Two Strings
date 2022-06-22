@@ -49,3 +49,23 @@ if __name__ == "__main__":
 # Fails unless two strings are of equal length
 
 #%%
+
+
+class Solution:
+    def merge(S1, S2):
+        cutoff = max(len(S1), len(S2)) - min(len(S1), len(S2))
+        zipped = ''.join([char for tup in zip(list(S1), list(S2)) for char in tup]) 
+        if len(S1) > len(S2):
+            return zipped + S1[(-1 * cutoff)::]
+        elif len(S1) < len(S2):
+            return zipped + S2[(-1 * cutoff)::]
+        else:
+            return zipped
+
+
+if __name__ == "__main__":
+    print(Solution.merge("abc", "def"))                                         # adbecf
+    print(Solution.merge("Hello", "Bye"))                                       # HBeylelo
+
+
+#%%
