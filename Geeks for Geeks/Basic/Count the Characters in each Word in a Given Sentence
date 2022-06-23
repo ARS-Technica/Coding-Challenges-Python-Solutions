@@ -57,3 +57,15 @@ if __name__ == "__main__":
 
 #%%
 
+
+class Solution:
+    def countChars(s):
+        return [len(word) for word in s.split()]
+
+
+if __name__ == "__main__":
+    print(Solution.countChars("the quick brown fox"))                           # 3 5 5 3
+    print(Solution.countChars("geeks for geeks"))                               # 5 3 5
+
+
+#%%
