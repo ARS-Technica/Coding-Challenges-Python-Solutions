@@ -66,3 +66,25 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def amendSentence(s):
+        cuts = [i for i in range(0, len(s)) if s[i].isupper()]
+        result = []       
+
+        end = len(s) + 1
+
+        for n in cuts[::-1]:
+            result.append(s[n:end:].lower())
+            end = n
+
+        return ' '.join(result[::-1])
+
+
+if __name__ == "__main__":
+    print(Solution.amendSentence("BruceWayneIsBatman"))          # bruce wayne is batman
+    print(Solution.amendSentence("You"))                         # you
+
+
+#%%
