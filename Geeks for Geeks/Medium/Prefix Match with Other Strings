@@ -1,0 +1,69 @@
+"""
+Prefix match with other strings
+Medium
+https://practice.geeksforgeeks.org/problems/prefix-match-with-other-strings/1/
+
+Given an array of strings arr[] of size n and given s a string str and an integer
+k. The task is to find the count of strings in arr[] whose prefix of length k
+matches with the k length prefix of str.
+
+
+Example 1:
+
+Input:
+n = 6
+arr[] = {“abba”, “abbb”, “abbc”, “abbd”, 
+“abaa”, “abca”}
+str = “abbg”
+k = 3
+Output: 4 
+Explanation:
+“abba”, “abbb”, “abbc” and “abbd” are 
+the matching strings.
+
+
+Example 2:
+
+Input:
+n = 3
+arr[] = {“geeks”, “geeksforgeeks”, “forgeeks”}
+str = “geeks”
+k = 2
+Output: 2
+
+Your Task:  
+You don't need to read input or print anything. Your task is to complete the
+function klengthpref() which takes the array of strings arr[], its size n and
+an integer k, a string str as input parameters and returns the count of strings
+in arr[] whose prefix of length k matches with the k length prefix of str.
+
+Expected Time Complexity: O(n*l) where l is the length of the longest word in arr[].
+Expected Auxiliary Space: O(n*l) where l is the length of the longest word in arr[].
+
+
+Constraints:
+1 <= n <= 1000
+1 <= |arr[i]| , |str| <= 1000
+1 <= k <= 1000
+arr[i], str must contain only lowercase english alphabets
+"""
+
+
+class Solution:
+    def klengthpref(arr,n,k,s):
+        counter = 0
+        prefix = s[0:k]
+        
+        for word in arr:
+            if word[0:k] == prefix:
+                counter += 1
+
+        return counter
+
+
+if __name__ == "__main__":
+    print(Solution.klengthpref(["abba", "abbb", "abbc", "abbd", "abaa", "abca"], 6, 3, "abbg"))     # 4
+    print(Solution.klengthpref(["geeks", "geeksforgeeks", "forgeeks"], 3, 2, "geeks"))              # 2
+
+
+#%%
