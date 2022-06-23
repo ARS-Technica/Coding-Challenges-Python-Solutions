@@ -67,3 +67,16 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def klengthpref(arr,n,k,s):
+        return sum([1 for word in arr if word[0:k] == s[0:k]])
+
+
+if __name__ == "__main__":
+    print(Solution.klengthpref(["abba", "abbb", "abbc", "abbd", "abaa", "abca"], 6, 3, "abbg"))     # 4
+    print(Solution.klengthpref(["geeks", "geeksforgeeks", "forgeeks"], 3, 2, "geeks"))              # 2
+
+
+#%%
