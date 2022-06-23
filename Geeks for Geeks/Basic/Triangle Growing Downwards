@@ -1,0 +1,61 @@
+"""
+Triangle growing downwards
+Basic
+https://practice.geeksforgeeks.org/problems/triangle-growing-downwards2344/1/
+
+Given string str of a constant length, print a triangle out of it. The triangle
+should start with the first character of the string and keep growing downwards
+by adding one character from the string.
+
+The spaces on the left side of the triangle should be replaced with a dot character. 
+
+Example 1:
+
+Input:
+str = "geeks"
+
+Output:
+....g
+...ge
+..gee
+.geek
+geeks
+
+Example 2:
+
+Input:
+str = "thisi"
+
+Output:
+....t
+...th
+..thi
+.this
+thisi
+
+Your Task:  
+You don't need to read input. Your task is to complete the function
+printTriangleDownwards() which takes the string str as an input parameter and
+prints the required triangle.
+
+Expected Time Complexity: O(N*N), Where N is the size of input string.
+Expected Auxiliary Space: O(1)
+
+Constraints:
+1 <= |str| <= 500
+"""
+
+
+class Solution:
+    def printTriangleDownwards(s):
+        counter = 1
+
+        for i in s:
+            print('.' * (len(s) - counter) + s[0:counter])
+            counter += 1
+
+
+if __name__ == "__main__":
+    print(Solution.printTriangleDownwards("geeks")) 
+    print(Solution.printTriangleDownwards("thisi")) 
+
