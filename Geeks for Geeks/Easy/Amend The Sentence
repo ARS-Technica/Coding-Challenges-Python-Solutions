@@ -88,3 +88,38 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def amendSentence(s):
+        result = s[0].lower()
+
+        for i in s[1:]:
+            if i.isupper():
+                result += ' '
+                result += i.lower()
+            else:
+                result += i
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution.amendSentence("BruceWayneIsBatman"))          # bruce wayne is batman
+    print(Solution.amendSentence("You"))                         # you
+
+
+#%%
+
+
+class Solution:
+    def amendSentence(s):
+        return ''.join([' ' + i.lower() if i.isupper() else i for i in s[::]]).strip()
+
+
+if __name__ == "__main__":
+    print(Solution.amendSentence("BruceWayneIsBatman"))          # bruce wayne is batman
+    print(Solution.amendSentence("You"))                         # you
+
+
+#%%
