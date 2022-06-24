@@ -135,3 +135,23 @@ if __name__ == "__main__":
 # Successful
 
 #%%
+
+
+from collections import Counter
+
+class Solution:
+    def firstRepeated(arr, n):       
+        freq = Counter(arr)
+        result = [idx + 1 for idx, num in enumerate(arr) if freq[num] > 1]
+        return result[0] if result else -1
+
+
+if __name__ == "__main__":
+    print(Solution.firstRepeated([1, 5, 3, 4, 3, 5, 6], 7))                             # 2
+    print(Solution.firstRepeated([1, 2, 3, 4], 4))                                      # -1
+    print(Solution.firstRepeated([7, 4, 0, 9, 4, 8, 8, 2, 4, 5, 5, 1,], 12))            # 2
+
+
+# Successful
+
+#%%
