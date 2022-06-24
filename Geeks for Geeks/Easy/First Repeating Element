@@ -46,3 +46,69 @@ Constraints:
 1 <= n <= 106
 0 <= Ai<= 106
 """
+
+
+from collections import Counter
+
+class Solution:
+    def firstRepeated(arr, n):       
+        for idx, num in enumerate(arr):
+            if Counter(arr)[num] > 1:
+                return idx + 1
+
+        return -1
+
+
+if __name__ == "__main__":
+    print(Solution.firstRepeated([1, 5, 3, 4, 3, 5, 6], 7))                             # 2
+    print(Solution.firstRepeated([1, 2, 3, 4], 4))                                      # -1
+    print(Solution.firstRepeated([7, 4, 0, 9, 4, 8, 8, 2, 4, 5, 5, 1,], 12))            # 2
+
+
+# Test Cases Passed: 132 /  142
+# Time Limit Exceeded
+
+#%%
+
+
+from collections import Counter
+
+class Solution:
+    def firstRepeated(arr, n):       
+        freq = [idx + 1 for idx, num in enumerate(arr) if Counter(arr)[num] > 1]
+        return freq[0] if freq else -1
+
+
+if __name__ == "__main__":
+    print(Solution.firstRepeated([1, 5, 3, 4, 3, 5, 6], 7))                             # 2
+    print(Solution.firstRepeated([1, 2, 3, 4], 4))                                      # -1
+    print(Solution.firstRepeated([7, 4, 0, 9, 4, 8, 8, 2, 4, 5, 5, 1,], 12))            # 2
+
+
+# Test Cases Passed: 102 /  142
+# Time Limit Exceeded
+
+#%%
+
+
+from collections import Counter
+
+class Solution:
+    def firstRepeated(arr, n):       
+        for num in arr:
+            if Counter(arr)[num] > 1:
+                return arr.index(num) + 1
+
+        return -1
+
+
+if __name__ == "__main__":
+    print(Solution.firstRepeated([1, 5, 3, 4, 3, 5, 6], 7))                             # 2
+    print(Solution.firstRepeated([1, 2, 3, 4], 4))                                      # -1
+    print(Solution.firstRepeated([7, 4, 0, 9, 4, 8, 8, 2, 4, 5, 5, 1,], 12))            # 2
+
+
+# Test Cases Passed: 132 /  142
+# Time Limit Exceeded
+
+#%%
