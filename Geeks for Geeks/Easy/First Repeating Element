@@ -155,3 +155,13 @@ if __name__ == "__main__":
 # Successful
 
 #%%
+
+class Solution:
+    def firstRepeated(self,arr, n):
+        for value in arr:
+            sets=set(arr)
+            if len(sets)==len(arr):
+                return -1
+
+            if arr.count(value)>1:
+                return arr.index(value)+1
