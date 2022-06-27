@@ -52,9 +52,26 @@ def strstr(s,x):
                 return i
     return -1
 
+
+if __name__ == "__main__":
+    print(strstr('GeeksForGeeks', 'Fr'))                  # -1
+    print(strstr('GeeksForGeeks', 'For'))                 # 5
+
+
+#%%
+
+
+def strstr(s,x):
+    if x in s:
+        s = list(s)
+        return [i for i in range(0, len(s) - (len(x) - 1), 1) if ''.join(s[i : i + len(x)]) == x][0]
+    return -1
+
     
 if __name__ == "__main__":
     print(strstr('GeeksForGeeks', 'Fr'))                  # -1
     print(strstr('GeeksForGeeks', 'For'))                 # 5
 
+
+#%%
 
