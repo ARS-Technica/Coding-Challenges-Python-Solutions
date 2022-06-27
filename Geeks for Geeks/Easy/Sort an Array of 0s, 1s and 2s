@@ -1,7 +1,7 @@
 """
 Sort an array of 0s, 1s and 2s
 Easy
-https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1/?page=1&curated[]=1&sortBy=submissions 
+https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1/
 
 Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.
 
@@ -42,4 +42,28 @@ Constraints:
 0 <= A[i] <= 2
 """
 
+
+class Solution:
+    def sort012(arr,n):
+        low = 0
+        middle = 0
+        high = len(arr) - 1
+        
+        while middle <= high:
+            if arr[middle] == 0:
+                arr[low], arr[middle] = arr[middle], arr[low]
+                low += 1
+                middle += 1
+            elif arr[middle] == 1:
+                middle += 1
+            else:   #if arr[middle] == 2:
+                arr[middle], arr[high] = arr[high], arr[middle]
+                high -= 1
+
+        return arr
+
+
+if __name__ == "__main__":
+    print(Solution.sort012([0, 2, 1, 2, 0], 5))                                 # 0 0 1 2 2
+    print(Solution.sort012([0, 1, 0], 3))                                       # 0 0 1 
 
