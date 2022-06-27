@@ -40,12 +40,25 @@ Constraints:
 
 
 class Solution:
-    def findLongestWord(S, d): 
-        result = sorted([word for word in d if set(word).issubset(S)]) 
-        return max(result, key=len)
+    def findLongestWord(S, d):
+        d = sorted(d, key=len, reverse=True)
+
+        result = ['']
+
+        for word in d:
+            length = len(word)
+            if set(word).issubset(S):
+                if length >= len(max(result, key=len)):
+                    result.append(word)
+
+        del result[0]
+
+        return sorted(result, key=lambda result: result)[0]
 
 
 if __name__ == "__main__":
     print(Solution.findLongestWord("abpcplea", {"ale", "apple", "monkey", "plea"}))  # "apple" 
     print(Solution.findLongestWord("abpcplea", {"a", "b", "c"}))                     # a
 
+
+#%%
