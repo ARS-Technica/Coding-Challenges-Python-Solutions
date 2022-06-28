@@ -66,3 +66,20 @@ if __name__ == "__main__":
 # Test Cases Passed: 12 /  410
 # Time Limit Exceeded
 
+#%%
+
+
+class Solution:
+    def leaders(A, N):
+        return [A[i] for i in range(N-1, -1, -1) if A[i] == max(A[i::])][::-1]
+
+
+if __name__ == "__main__":
+    print(Solution.leaders([16,17,4,3,5,2], 6))                   # 17 5 2
+    print(Solution.leaders([1,2,3,4,0], 5))                       # 4 0
+
+
+# Test Cases Passed: 12 /  410
+# Time Limit Exceeded
+
+#%%
