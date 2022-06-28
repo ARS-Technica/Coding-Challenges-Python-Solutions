@@ -52,3 +52,35 @@ if __name__ == "__main__":
     print(Solution.isAnagram('geeksforgeeks', 'forgeeksgeeks'))                   # YES
     print(Solution.isAnagram('allergy', 'allergic'))                              # NO
 
+
+#%%
+
+
+class Solution:
+    def isAnagram(a,b):
+        freq_a = {}
+        freq_b = {}
+
+        if len(a) == len(b) and set(a) == set(b):
+            for char in a:
+                if char in freq_a:
+                    freq_a[char] += 1
+                else:
+                    freq_a[char] = 1
+                    
+            for char in b:
+                if char in freq_b:
+                    freq_b[char] += 1
+                else:
+                    freq_b[char] = 1
+
+            if freq_a == freq_b:
+                return True
+        return False
+
+
+if __name__ == "__main__":
+    print(Solution.isAnagram('geeksforgeeks', 'forgeeksgeeks'))                   # YES
+    print(Solution.isAnagram('allergy', 'allergic'))                              # NO
+
+
