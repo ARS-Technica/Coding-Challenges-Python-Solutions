@@ -2,7 +2,6 @@
 Equilibrium Point
 Easy
 https://practice.geeksforgeeks.org/problems/equilibrium-point-1587115620/1/
-Created on Tue Jun 28 05:23:01 2022
 
 Given an array A of n positive numbers. The task is to find the first
 Equilibium Point in the array. 
@@ -110,3 +109,32 @@ if __name__ == "__main__":
     print(Solution.equilibriumPoint([1], 1))                                # 1
     print(Solution.equilibriumPoint([20, 17, 42, 25, 32, 32, 30, 32, 37, 9, 2, 33, 31, 17, 14, 40, 9, 12, 36, 21, 8, 33, 6, 6, 10, 37, 12, 26, 21, 3], 30))             # 13
 
+
+#%%
+
+# Better solution.  Not mine.
+# https://practice.geeksforgeeks.org/viewSol.php?subId=a7d7c4430a7276af870d7cf6f8d6b146&pid=701203&user=raghuyelkur
+
+class Solution:
+    def equilibriumPoint(A, N):
+        total = sum(A)
+        left = 0
+        
+        for i in range(N):
+            right = total-left-A[i]
+            
+            if left == right:
+                return i + 1
+            
+            left += A[i]
+        
+        return -1
+
+
+if __name__ == "__main__":
+    print(Solution.equilibriumPoint([1,3,5,2,2], 5))                        # 3
+    print(Solution.equilibriumPoint([1], 1))                                # 1
+    print(Solution.equilibriumPoint([20, 17, 42, 25, 32, 32, 30, 32, 37, 9, 2, 33, 31, 17, 14, 40, 9, 12, 36, 21, 8, 33, 6, 6, 10, 37, 12, 26, 21, 3], 30))             # 13
+
+
+#%%
