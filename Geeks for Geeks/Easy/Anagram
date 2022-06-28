@@ -84,3 +84,33 @@ if __name__ == "__main__":
     print(Solution.isAnagram('allergy', 'allergic'))                              # NO
 
 
+#%%
+
+
+class Solution:
+    def isAnagram(a,b):
+        freq_a, freq_b = {}, {}
+        
+        def freq_dict(arr, dic):
+            for char in arr:
+                if char in dic:
+                    dic[char] += 1
+                else:
+                    dic[char] = 1            
+        
+        if len(a) == len(b) and set(a) == set(b):
+            freq_dict(a, freq_a)
+            freq_dict(b, freq_b)
+
+            if freq_a == freq_b:
+                return True
+
+        return False
+
+
+if __name__ == "__main__":
+    print(Solution.isAnagram('geeksforgeeks', 'forgeeksgeeks'))                   # YES
+    print(Solution.isAnagram('allergy', 'allergic'))                              # NO
+
+
+#%%
