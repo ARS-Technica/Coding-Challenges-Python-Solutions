@@ -46,3 +46,22 @@ if __name__ == "__main__":
 # Test Cases Passed: 12 / 100110
 
 #%%
+
+
+class Solution:
+    def isPowerofTwo(n):
+        if n == 0: return False
+        if n == 1: return True
+        elif n%2 != 0: return False
+        return Solution.isPowerofTwo(n/2)
+        #return Solution.isPowerofTwo(self, n/2)
+
+
+if __name__ == "__main__":
+    print(Solution.isPowerofTwo(1))                      # YES
+    print(Solution.isPowerofTwo(98))                     # NO
+    print(Solution.isPowerofTwo(549755813888))           # YES
+
+
+# Passed
+
