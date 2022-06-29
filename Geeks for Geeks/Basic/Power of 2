@@ -65,3 +65,24 @@ if __name__ == "__main__":
 
 # Passed
 
+#%%
+
+# Better solution. Not mine.
+# https://www.geeksforgeeks.org/program-to-find-whether-a-given-number-is-power-of-2/
+
+import math
+
+class Solution:
+    def isPowerofTwo(n):
+        if n == 0: return False
+        log = (math.log10(n) / math.log10(2))
+        return (math.ceil(log) == math.floor(log))
+
+
+if __name__ == "__main__":
+    print(Solution.isPowerofTwo(1))                      # YES
+    print(Solution.isPowerofTwo(98))                     # NO
+    print(Solution.isPowerofTwo(549755813888))           # YES
+
+
+#%%
