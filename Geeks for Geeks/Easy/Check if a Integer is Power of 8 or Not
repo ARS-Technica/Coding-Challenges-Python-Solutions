@@ -1,0 +1,67 @@
+"""
+Check if a Integer is power of 8 or not
+Easy
+https://practice.geeksforgeeks.org/problems/check-if-a-integer-is-power-of-8-or-not2537/0/
+
+Given a positive integer N, The task is to find if it is a power of eight or not.
+
+
+Example 1: 
+
+Input: 64
+Output: Yes
+Explanation: 64 is power of 8.
+
+
+Example 2:
+
+Input: 75
+Output: No
+Explanation: 75 is not a power of 8.
+
+Your Task:
+You don't need to read or print anything. your task is to complete the function
+is_power_of_eight() which takes N as the input parameter and returns "Yes" if N
+is power of eight otherwise returns "No"(Wihtout quotes).
+
+Expected Time Complexity: O(log(N))
+Expected Space Complexity: O(1)
+
+Constraints:
+1 <= N <= 1018
+"""
+
+
+class Solution:
+	#def is_power_of_eight(self, n):    
+    def is_power_of_eight(n):
+        if n == 0: return 'No'
+        if n == 1: return 'Yes'
+        elif n%8 != 0: return 'No'
+        #return Solution.is_power_of_eight(self, n/8)
+        return Solution.is_power_of_eight(n/8)
+
+
+if __name__ == "__main__":
+    print(Solution.is_power_of_eight(64))                      # 1
+    print(Solution.is_power_of_eight(75))                      # 0   
+    print(Solution.is_power_of_eight(16))                      # 1
+    print(Solution.is_power_of_eight(5))                       # 0
+    print(Solution.is_power_of_eight(1))                       # 1
+
+
+# Passed
+
+#%%
+
+
+
+
+
+
+
+
+
+
+
+
