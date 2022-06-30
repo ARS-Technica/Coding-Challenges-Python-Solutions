@@ -60,3 +60,21 @@ if __name__ == "__main__":
 
 #%%
 
+
+import math
+
+class Solution:
+    def isPowerof3(N):
+        if N == 0: return 'No'
+        log = (math.log10(N) / math.log10(3)) 
+        return 'Yes' if (math.ceil(log) == math.floor(log)) else 'No'
+
+
+if __name__ == "__main__":
+    print(Solution.isPowerof3(27))                      # Yes
+    print(Solution.isPowerof3(0))                       # No
+    print(Solution.isPowerof3(9))                       # Yes
+    print(Solution.isPowerof3(1957747794))              # No
+
+
+#%%
