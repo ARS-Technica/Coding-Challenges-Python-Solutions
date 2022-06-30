@@ -55,3 +55,28 @@ if __name__ == "__main__":
 #%%
 
 
+class Solution:
+    def isPowerofFour(n):
+        while n % 4 == 0 and n >= 16:
+            n = n/16
+
+        while n % 4 == 0 and n >= 4:
+            n = n/4
+
+        if n == 1:
+            return 1
+
+        return 0
+
+
+if __name__ == "__main__":
+    print(Solution.isPowerofFour(64))                      # 1
+    print(Solution.isPowerofFour(75))                      # 0   
+    print(Solution.isPowerofFour(16))                      # 1
+    print(Solution.isPowerofFour(5))                       # 0
+    print(Solution.isPowerofFour(1))                       # 1
+
+
+#%%
+
+
