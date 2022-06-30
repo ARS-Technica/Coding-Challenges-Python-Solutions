@@ -74,11 +74,15 @@ if __name__ == "__main__":
 #%%
 
 
+class Solution:
+    def isPowerofFour(n):
+        return 'Yes' if n == 1 or n%8 == 0 and bin(n).count('1') == 1 else 'No'
 
 
-
-
-
-
-
+if __name__ == "__main__":
+    print(Solution.isPowerofFour(64))                      # 1
+    print(Solution.isPowerofFour(75))                      # 0   
+    print(Solution.isPowerofFour(16))                      # 1
+    print(Solution.isPowerofFour(5))                       # 0
+    print(Solution.isPowerofFour(1))                       # 1
 
