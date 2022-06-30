@@ -80,3 +80,23 @@ if __name__ == "__main__":
 #%%
 
 
+class Solution:
+    def isPowerofFour(n):
+        if n == 1:
+            return 1
+
+        if n%4 == 0:
+            return 1 if ((n-1 & n) == 0) and (n%10 == 4 or n%10 == 6) else 0
+
+        return 0
+
+
+if __name__ == "__main__":
+    print(Solution.isPowerofFour(64))                      # 1
+    print(Solution.isPowerofFour(75))                      # 0   
+    print(Solution.isPowerofFour(16))                      # 1
+    print(Solution.isPowerofFour(5))                       # 0
+    print(Solution.isPowerofFour(1))                       # 1
+
+
+#%%
