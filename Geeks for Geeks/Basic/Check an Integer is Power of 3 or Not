@@ -1,0 +1,62 @@
+"""
+Check an Integer is power of 3 or not
+Basic
+https://practice.geeksforgeeks.org/problems/check-a-integer-is-power-of-3-or-not3850/1/ 
+
+Given a positive integer N, write a function to find if it is a power of three or not.
+
+
+Example 1:
+
+Input:
+N = 3
+Output:
+Yes
+Explanation:
+31 is a power of 3.
+ 
+
+Example 2:
+
+Input:
+N = 5
+Output:
+No
+Explanation:
+5 is not a power of 3.
+ 
+
+Your Task: 
+You don't need to read input or print anything. Your task is to complete the
+function isPowerof3() which takes an integer N and returns "Yes" if N is a
+power of 3, else "No" if N is not a power of 3.
+ 
+
+Expected Time Complexity: O(1)
+Expected Auxiliary Space: O(1)
+ 
+
+Constraints:
+1<=N<=(32-bit largest integer)
+"""
+
+
+class Solution:
+    def isPowerof3 (ob,N):
+    #def isPowerof3(N):
+        if N == 0: return 'No'
+        if N == 1: return 'Yes'
+        elif N%3 != 0: return 'No'
+        return Solution.isPowerof3(ob, N/3)
+        #return Solution.isPowerof3(N/3)
+
+
+if __name__ == "__main__":
+    print(Solution.isPowerof3(27))                      # Yes
+    print(Solution.isPowerof3(0))                       # No
+    print(Solution.isPowerof3(9))                       # Yes
+    print(Solution.isPowerof3(1957747794))              # No
+
+
+#%%
+
