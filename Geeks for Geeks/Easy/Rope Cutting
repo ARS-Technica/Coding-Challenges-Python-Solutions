@@ -66,3 +66,24 @@ if __name__ == "__main__":
 
 #%%
 
+
+class Solution:
+   def RopeCutting(arr, n):
+       arr.sort()
+       cut = arr[0]
+       result = []
+
+       for idx in range(n):
+           if arr[idx] != cut:
+               cut = arr[idx]
+               result += [n-idx]
+
+       return result
+
+
+if __name__ == "__main__":
+    print(Solution.RopeCutting([5, 1, 1, 2, 3, 5], 6))                      # 4 3 2
+    print(Solution.RopeCutting([5, 1, 6, 9, 8, 11, 2, 2, 6, 5], 10))        # 9 7 5 3 2 1
+
+
+# Passed
