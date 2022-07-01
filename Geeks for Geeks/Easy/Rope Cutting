@@ -67,6 +67,9 @@ if __name__ == "__main__":
 #%%
 
 
+# Rather than actually generating the results,
+# just count the times the length of the cut changes.
+
 class Solution:
    def RopeCutting(arr, n):
        arr.sort()
