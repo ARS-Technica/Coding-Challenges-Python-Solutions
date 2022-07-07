@@ -11,6 +11,7 @@ array which sums up to the given integer X.
 class Solution:
     def find3Numbers(A, n, X):
         for i in range(0, n-1):
+            # This set MUST be inside the first loop
             nums = set()
 
             for j in range(i+1, n):
