@@ -31,3 +31,30 @@ if __name__ == "__main__":
 
 # Works 
 
+
+#%%
+
+
+class Solution:
+    def find3Numbers(A, n, X):
+        A.sort()
+        
+        for idx in range(0, n-2): 
+            left = idx + 1
+            right = len(A) - 1
+            
+            while left < right:
+                if A[idx] + A[left] + A[right] == X:
+                    return True
+                elif A[idx] + A[left] + A[right] < X:
+                    left += 1
+                else:
+                    right -= 1
+
+        return False
+
+
+if __name__ == "__main__":
+    print(Solution.find3Numbers([1, 4, 45, 6, 10, 8,], 6, 13))            # 1
+    print(Solution.find3Numbers([1, 2, 4, 3, 6,], 5, 10))                 # 1
+
