@@ -44,3 +44,51 @@ if __name__ == "__main__":
 
 
 #%%
+
+from itertools import combinations
+
+
+class Solution:
+    def getPairsCount(arr, n, k):
+        result = 0
+
+        comb = combinations(arr, 2) 
+
+        for i in list(comb): 
+            if sum(i) == k:
+                result += 1
+        
+        return result
+            
+            
+if __name__ == "__main__":
+    print(Solution.getPairsCount([1, 5, 7, 1], 4, 6))             # 2
+    print(Solution.getPairsCount([1, 1, 1, 1], 4, 2))             # 6
+
+
+#%%
+
+from itertools import combinations
+
+
+class Solution:
+    def getPairsCount(arr, n, k):
+        result = sum(1 for i in list(combinations(arr, 2)) if sum(i) == k)
+        return result
+            
+            
+if __name__ == "__main__":
+    print(Solution.getPairsCount([1, 5, 7, 1], 4, 6))             # 2
+    print(Solution.getPairsCount([1, 1, 1, 1], 4, 2))             # 6
+
+# Test Cases Passed: 75 /  263
+# Time Limit Exceeded
+
+
+#%%
+
+
+
+
+
+
