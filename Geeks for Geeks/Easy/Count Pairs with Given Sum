@@ -88,7 +88,31 @@ if __name__ == "__main__":
 #%%
 
 
+class Solution:
+   def getPairsCount(arr, n, k):
+       result = 0
+       frequency = {}
+
+       for idx in arr:
+           diff = k - idx
+           
+           if diff in frequency:
+               result += frequency[diff]
+           if idx not in frequency:
+               frequency[idx] = 1
+           else:
+               frequency[idx] += 1
+
+       return result
 
 
+if __name__ == "__main__":
+    print(Solution.getPairsCount([1, 5, 7, 1], 4, 6))             # 2
+    print(Solution.getPairsCount([1, 1, 1, 1], 4, 2))             # 6
+
+# Success!
+# Time Complexity: O(N)
+# Space: O(N)
 
 
+#%%
