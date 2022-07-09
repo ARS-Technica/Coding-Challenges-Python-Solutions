@@ -2,7 +2,6 @@
 Remove b and ac from a given string
 Easy
 https://practice.geeksforgeeks.org/problems/remove-b-and-ac-from-a-given-string4336/1/
-Created on Fri Jul  8 21:47:17 2022
 
 Given a string, eliminate all “b” and “ac” in the string, replace them in-place
 and iterate over the string once.
@@ -38,3 +37,23 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def stringFilter(str):
+        # result = []   No extra space!
+        str = list(str)
+
+        for idx in range(len(str)):
+            if idx < (len(str)-1) and str[idx] + str[idx+1] == "ac":
+                str[idx], str[idx + 1] = "", ""
+            if str[idx] == "b":
+                str[idx] = ""
+
+        return "".join(str)
+
+
+if __name__ == "__main__":
+    print(Solution.stringFilter("aacbacc"))              # ac
+    print(Solution.stringFilter("aacb"))                 # a
+
