@@ -1,0 +1,40 @@
+"""
+Remove b and ac from a given string
+Easy
+https://practice.geeksforgeeks.org/problems/remove-b-and-ac-from-a-given-string4336/1/
+Created on Fri Jul  8 21:47:17 2022
+
+Given a string, eliminate all “b” and “ac” in the string, replace them in-place
+and iterate over the string once.
+"""
+
+
+class Solution:
+    def stringFilter(str): 
+        return str.replace('b', '').replace('ac', '')
+   
+            
+if __name__ == "__main__":
+    print(Solution.stringFilter("aacbacc"))              # ac
+    print(Solution.stringFilter("aacb"))                 # a
+
+# Wrong Answer !!! 
+# Test Cases Passed: 101 / 200
+
+
+#%%
+
+
+class Solution:
+    def stringFilter(str): 
+        return str.replace('ac', '').replace('b', '')
+   
+            
+if __name__ == "__main__":
+    print(Solution.stringFilter("aacbacc"))              # ac
+    print(Solution.stringFilter("aacb"))                 # a
+
+# Passed
+
+
+#%%
