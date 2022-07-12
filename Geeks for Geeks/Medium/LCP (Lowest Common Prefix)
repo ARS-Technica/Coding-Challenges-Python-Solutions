@@ -298,8 +298,8 @@ import os
 
 class Solution:
     def LCP(arr,n):
-        #code here
         a=os.path.commonprefix(arr)
+
         if a=='':
             return -1
         return a
@@ -312,6 +312,32 @@ if __name__ == "__main__":
     print(Solution.LCP(['ab', 'cd', 'ef'], 3))                                       # -1
     print(Solution.LCP(['a', 'a', 'a', 'a'], 4))                                     # a   
     print(Solution.LCP(['abc', 'abcd', 'abcde', 'abcdef'], 4))                       # abc    
+
+
+#%%
+
+
+class Solution:
+    def LCP(arr,n):    
+        if not arr: return -1
+    
+        shortest = min(arr, key=len)
+    
+        for i, char in enumerate(shortest):
+            for word in arr:
+                if word[i] != char:
+                    return shortest[:i] if len(shortest[:i]) > 0 else -1
+    
+        return shortest
+
+
+if __name__ == "__main__":
+    print(Solution.LCP(['geeksforgeeks', 'geeks', 'geek', 'geezer'], 4))             # gee
+    print(Solution.LCP(['apple', 'ape', 'april'], 3))                                # ap
+    print(Solution.LCP(['a', 'b', 'c'], 3))                                          # -1
+    print(Solution.LCP(['ab', 'cd', 'ef'], 3))                                       # -1
+    print(Solution.LCP(['a', 'a', 'a', 'a'], 4))                                     # a
+    print(Solution.LCP(['abc', 'abcd', 'abcde', 'abcdef'], 4))                       # abc
 
 
 #%%
