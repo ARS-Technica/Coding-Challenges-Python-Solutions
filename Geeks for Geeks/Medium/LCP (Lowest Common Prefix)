@@ -49,6 +49,45 @@ Constraints:
 
 
 
+
+class Solution:
+    def LCP(arr, n):
+        arr.sort(key=len) 
+
+        # Edge Cases
+        if arr == None or len(arr) == 0:
+            return -1
+        elif len(arr) == 1:
+            return arr[0]
+        elif len(arr[0]) == 0:
+            return -1
+        elif len(arr[0]) == 1:
+            if arr[0][0] != arr[1][0]:
+                return -1
+
+        else:
+            for idx in range(len(arr[0])):
+                for word in arr:
+                    if idx == len(word) or word[idx] != arr[0][idx]:
+                        return arr[0][0:idx] if idx > 0 else -1
+
+        return -1
+
+
+if __name__ == "__main__":
+    print(Solution.LCP(['geeksforgeeks', 'geeks', 'geek', 'geezer'], 4))             # gee
+    print(Solution.LCP(['apple', 'ape', 'april'], 3))                                # ap
+    print(Solution.LCP(['a', 'b', 'c'], 3))                                          # -1
+    print(Solution.LCP(['ab', 'cd', 'ef'], 3))                                       # -1
+    print(Solution.LCP(['a', 'a', 'a', 'a'], 4))                                     # a   
+
+# Wrong Answer !!!
+# Test Cases Passed: 3 / 205
+
+
+#%%
+
+
 class Solution:
     def LCP(arr, n):
         arr.sort(key=len) 
@@ -84,8 +123,6 @@ if __name__ == "__main__":
     print(Solution.LCP(['ab', 'cd', 'ef'], 3))                                       # -1
     print(Solution.LCP(['a', 'a', 'a', 'a'], 4))                                     # a   
     print(Solution.LCP(['abc', 'abcd', 'abcde', 'abcdef'], 4))                       # abc
-   
-
 
 # Wrong Answer !!!
 # Test Cases Passed: 3 / 205
@@ -121,7 +158,7 @@ if __name__ == "__main__":
     print(Solution.LCP(['ab', 'cd', 'ef'], 3))                                       # -1
     print(Solution.LCP(['a', 'a', 'a', 'a'], 4))                                     # a   
     print(Solution.LCP(['abc', 'abcd', 'abcde', 'abcdef'], 4))                       # abc
-   
+
 # Passed
 
 
