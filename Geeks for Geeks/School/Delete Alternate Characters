@@ -1,0 +1,20 @@
+"""
+Delete alternate characters
+School
+https://practice.geeksforgeeks.org/problems/java-delete-alternate-characters4036/1/ 
+
+Given a string S as input. Delete the characters at odd indices of the string.
+"""
+
+
+class Solution:
+    def delAlternate(ob, S):
+        return "".join(char for idx, char in enumerate(S) if idx % 2 == 0)
+
+        
+if __name__ == "__main__":
+    print(Solution().delAlternate("Geeks"))                                     # "Ges"
+    print(Solution().delAlternate("GeeksforGeeks"))                             # "GesoGes"
+
+
+#%%
