@@ -1,0 +1,48 @@
+"""
+Total distance travelled in an array
+Basic
+https://practice.geeksforgeeks.org/problems/total-distance-travelled-in-an-array3628/1/
+Created on Thu Jul 14 18:18:00 2022
+
+You are given an array arr[] of size N.
+The array consists of a permutation of the set {1, 2, 3, … , N} for some
+positive integer N. You have to start at the position which has 1 in the array
+and then travel to the position which has 2. Then from 2, you travel to 3 and
+so on till you reach the position which has N.
+
+When you travel from Arr[i] to Arr[j], the distance travelled is | i– j |.
+Find the total distance you have to travel to reach N when you start from 1.
+
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(N)
+"""
+
+# Failed
+
+
+class Solution:
+    def distance(self, arr, n):
+        arr.append(0)
+        result = []
+
+        for idx in range(1, len(arr)-1):
+            result.append( abs( arr.index(idx+1) - arr.index(idx) ) )
+
+        return sum(result)
+
+
+if __name__ == "__main__":
+    print(Solution().distance([5, 1, 4, 3, 2], 5))                              # 7
+    print(Solution().distance([6, 5, 1, 2, 4, 3], 6))                           # 8
+
+# Time Limit Exceeded
+# Test Cases Passed: 103 /  180
+
+
+#%%
+
+
+
+
+
+
