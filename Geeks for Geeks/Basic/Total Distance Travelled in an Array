@@ -89,6 +89,7 @@ if __name__ == "__main__":
 
 #%%
 
+# With dictionary comprehension
 
 class Solution:
     def distance(self, arr, n):
@@ -102,6 +103,23 @@ class Solution:
         return result 
 
 
+if __name__ == "__main__":
+    print(Solution().distance([5, 1, 4, 3, 2], 5))                              # 7
+    print(Solution().distance([6, 5, 1, 2, 4, 3], 6))                           # 8
+
+# Problem Solved Successfully
+
+
+#%%
+
+# With both a dictionary comprehension and a list comprehension
+
+class Solution:
+    def distance(self, arr, n):
+        positions = {num:idx for idx, num in enumerate(arr)}
+        return sum( abs( positions[i] - positions[i-1] ) for i in range(2, n+1) )
+
+     
 if __name__ == "__main__":
     print(Solution().distance([5, 1, 4, 3, 2], 5))                              # 7
     print(Solution().distance([6, 5, 1, 2, 4, 3], 6))                           # 8
