@@ -27,10 +27,10 @@ class Solution:
         result = ""
 
         while n > 0:
-            result += alpha[int(n%62)]
-            n /= 62
-        
-        return result
+            result += alpha[n%62]
+            n //= 62
+
+        return result[::-1]
 
 
 if __name__ == "__main__":
