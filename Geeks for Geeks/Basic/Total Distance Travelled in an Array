@@ -2,7 +2,6 @@
 Total distance travelled in an array
 Basic
 https://practice.geeksforgeeks.org/problems/total-distance-travelled-in-an-array3628/1/
-Created on Thu Jul 14 18:18:00 2022
 
 You are given an array arr[] of size N.
 The array consists of a permutation of the set {1, 2, 3, … , N} for some
@@ -64,5 +63,28 @@ if __name__ == "__main__":
 
 #%%
 
+# Realizing that the site is looking for something else, I tried a hashmap.
+
+class Solution:
+    def distance(self, arr, n):
+        positions = {}
+
+        for idx, num in enumerate(arr):
+            positions[num] = idx
+
+        result = 0
+
+        for i in range(2, n+1):
+            result += abs( positions[i] - positions[i-1] )
+
+        return result
 
 
+if __name__ == "__main__":
+    print(Solution().distance([5, 1, 4, 3, 2], 5))                              # 7
+    print(Solution().distance([6, 5, 1, 2, 4, 3], 6))                           # 8
+
+# Problem Solved Successfully
+
+
+#%%
