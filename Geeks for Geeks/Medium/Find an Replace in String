@@ -1,0 +1,71 @@
+"""
+Find an Replace in String
+Medium
+https://practice.geeksforgeeks.org/problems/find-an-replace-in-string/1/ 
+
+Given a string S on which you need to perform Q replace operations.
+Each replacement operation has 3 parameters: a starting index i, a source word
+x and a target word y. The rule is that if x starts at position i in the original
+string S, then we will replace that occurrence of x with y. If not, we do nothing.
+Note: All these operations occur simultaneously. It's guaranteed that there
+won't be any overlap in replacement: for example, S = "abc", indexes = [0,1],
+sources = ["ab", "bc"] is not a valid test case.
+
+Expected Time Complexity:  O(|S| * Q)
+Expected Auxilliary Space: O(Q)
+
+Constraints:
+1 ≤ |S| ≤ 104
+1 ≤ Q ≤ 100
+1 ≤ length of sourcesi, targetsi ≤ 100
+"""
+
+
+class Solution:
+    def findAndReplace(S, Q, index, sources, targets):
+        chars = [char for char in S]
+        count = 0
+        result = ''
+
+
+        for i, n in enumerate(chars):
+            if i not in index:
+                result += n
+
+            else:
+                print(i,  sources[count],   len(sources[count]),   targets[count])
+                excess = len(sources[count])
+
+                if excess == 1:
+                    if sources[count] == chars[i]:
+                        result += targets[count]
+
+                    else:
+                        result += n
+
+                    count += 1
+
+                else:
+                    print(sources[count], ''.join(chars[i : (i+excess)]))
+                    if sources[count] == ''.join(chars[i : (i+excess)]):
+                        result += targets[count]
+
+                        while excess > 0:
+                            print(chars[i])
+                            del chars[i]
+                            excess -= 1
+                            
+                    else:
+                        result += n
+
+                    count += 1
+
+
+        return ''.join(result)
+
+
+if __name__ == "__main__":
+    print(Solution.findAndReplace(S = "gforks", Q = 2, index = [0, 4], sources = ["g", "ks"], targets = ["geeks", "geeks"]))    # geeksforgeeks
+    print(Solution.findAndReplace("gforks", 2, [0, 3], ["g", "ss"], ["geeks", "geeks"]))                                        # geeksforks 
+    print(Solution.findAndReplace("abc", 1, [2], ["d"], ["e"]))                                                                 # abc
+
