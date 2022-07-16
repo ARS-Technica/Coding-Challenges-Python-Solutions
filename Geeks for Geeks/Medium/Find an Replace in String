@@ -33,7 +33,6 @@ class Solution:
                 result += n
 
             else:
-                print(i,  sources[count],   len(sources[count]),   targets[count])
                 excess = len(sources[count])
 
                 if excess == 1:
@@ -46,15 +45,13 @@ class Solution:
                     count += 1
 
                 else:
-                    print(sources[count], ''.join(chars[i : (i+excess)]))
                     if sources[count] == ''.join(chars[i : (i+excess)]):
                         result += targets[count]
 
                         while excess > 0:
-                            print(chars[i])
                             del chars[i]
                             excess -= 1
-                            
+
                     else:
                         result += n
 
@@ -67,5 +64,9 @@ class Solution:
 if __name__ == "__main__":
     print(Solution.findAndReplace(S = "gforks", Q = 2, index = [0, 4], sources = ["g", "ks"], targets = ["geeks", "geeks"]))    # geeksforgeeks
     print(Solution.findAndReplace("gforks", 2, [0, 3], ["g", "ss"], ["geeks", "geeks"]))                                        # geeksforks 
-    print(Solution.findAndReplace("abc", 1, [2], ["d"], ["e"]))                                                                 # abc
+    print(Solution.findAndReplace("abc", 1, [2], ["d"], ["e"]))                                                                 # abc   
+    print(Solution.findAndReplace("lyws", 3, [0, 1, 3,], ["l", "yw", "s",], ["ylopd", "dke", "h"]))                             # ylopddkeh
+
+# Wrong Answer !!! 
+# Test Cases Passed: 7 / 10034
 
