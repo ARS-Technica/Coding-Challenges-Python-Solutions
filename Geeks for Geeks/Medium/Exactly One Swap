@@ -50,3 +50,32 @@ if __name__ == "__main__":
 #%%
 
 
+import math
+
+class Solution:
+    def countStrings(self, S):
+        nums = len(set(S))
+        result = 0
+        
+        if nums == 0: return 0
+        if nums == 1: return 1
+        if nums == 2: return 1
+        
+        while nums > 0:
+            result += nums
+            nums -= 1
+        
+        return result    
+
+
+if __name__ == "__main__":
+    print(Solution().countStrings("geek"))                                      # 6
+    print(Solution().countStrings("ab"))                                        # 1
+    print(Solution().countStrings("bdeec"))                                     # 10
+
+# Wrong Answer. !!!
+# Test Cases Passed: 1 /11024
+
+
+#%%
+
