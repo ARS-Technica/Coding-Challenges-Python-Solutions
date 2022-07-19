@@ -115,3 +115,39 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def countStrings(self, S):
+        length = len(S)
+
+
+        if length == 0: return 0
+        if length == 1: return 1
+        if length == 2: return 1        
+
+
+        chars = set(list(S))
+        combinations = (len(S) * (len(S) - 1)) // 2
+
+
+        for char in chars:
+            n = S.count(char)
+            if n > 1:
+                subtract = (n * (n - 1)) // 2
+                combinations -= subtract
+
+
+        return combinations if length == len(chars) else combinations + 1
+
+
+if __name__ == "__main__":
+    print(Solution().countStrings("geek"))                                      # 6
+    print(Solution().countStrings("ab"))                                        # 1
+    print(Solution().countStrings("bdeec"))                                     # 10
+    print(Solution().countStrings("dceb"))                                      # 6
+    
+# Problem Solved Successfully
+
+
+#%%
