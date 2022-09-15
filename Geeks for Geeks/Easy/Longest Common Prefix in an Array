@@ -1,0 +1,8 @@
+"""
+Longest Common Prefix in an Array
+Easy
+https://practice.geeksforgeeks.org/problems/longest-common-prefix-in-an-array5129/1 
+
+Given a array of N strings, find the longest common prefix among all strings present in the array.
+"""
+ 
