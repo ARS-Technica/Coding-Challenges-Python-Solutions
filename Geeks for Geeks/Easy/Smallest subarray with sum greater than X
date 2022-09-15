@@ -14,3 +14,37 @@ You don't need to read input or print anything. Your task is to complete the
 function smallestSubWithSum() which takes the array A[], its size N and an integer
 X as inputs and returns the required ouput.
 """
+
+
+class Solution:
+    def smallestSubWithSum(self, a, n, x): 
+        left = 0
+        right = 0
+        
+        result = n + 1          # Could also use float("inf")
+        total = 0
+        
+        while right < n:
+            while total <= x and right < n:
+                total += a[right]
+                right += 1
+     
+            while total > x and left < n:
+                if right - left < result:
+                    result = right - left
+     
+                total -= a[left]
+                left += 1
+     
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().smallestSubWithSum([1, 4, 45, 6, 0, 19], 6, 51))            # 3
+    print(Solution().smallestSubWithSum([1, 10, 5, 2, 7], 5, 9))                 # 1
+
+# Problem Solved Successfully
+# Total Time Taken: 0.49
+
+
+#%%
