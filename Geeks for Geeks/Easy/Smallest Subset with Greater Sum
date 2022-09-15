@@ -8,6 +8,7 @@ task is to choose the minimum number of elements such that their sum should be
 greater than the sum of the rest of the elements of the array.
 """
 
+# Time Complexity: O(N*log(N)) | Space Complexity: O(1)
 
 class Solution:
     def minSubset(self, A, N): 
