@@ -11,6 +11,33 @@ Given a array of N strings, find the longest common prefix among all strings pre
 
 class Solution:
     def longestCommonPrefix(self, arr, n):
+        # If the array is empty
+        if not arr: return -1
+        
+        shortest = min(arr, key=len)
+        
+        for i, char in enumerate(shortest):
+            for word in arr:
+                if word[i] != char:
+                    return shortest[:i] if len(shortest[:i]) > 0 else -1
+
+        return shortest
+
+
+if __name__ == "__main__":
+    print(Solution().longestCommonPrefix(['geeksforgeeks', 'geeks', 'geek', 'geezer'], 4))    # 'gee'
+    print(Solution().longestCommonPrefix(['hello', 'world'], 2))                              # -1
+
+# Problem Solved Successfully
+
+
+#%%
+
+
+# Time Complexity: O(m*n) | Space Complexity: 0(1)
+
+class Solution:
+    def longestCommonPrefix(self, arr, n):
         temp = []
 
         for i in zip(*arr):
@@ -20,7 +47,7 @@ class Solution:
                 break
 
         return "".join(temp) if temp else -1     
-        
+
 
 if __name__ == "__main__":
     print(Solution().longestCommonPrefix(['geeksforgeeks', 'geeks', 'geek', 'geezer'], 4))    # 'gee'
