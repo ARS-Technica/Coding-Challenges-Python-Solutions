@@ -1,0 +1,16 @@
+"""
+Smallest subarray with sum greater than X
+Easy
+https://practice.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x5651/1 
+
+Given an array of integers (A[])  and a number x, find the smallest subarray
+with sum greater than the given value.
+
+Note: The answer always exists. It is guaranteed that x doesn't exceed the
+summation of a[i] (from 1 to N).
+
+Your Task:  
+You don't need to read input or print anything. Your task is to complete the
+function smallestSubWithSum() which takes the array A[], its size N and an integer
+X as inputs and returns the required ouput.
+"""
