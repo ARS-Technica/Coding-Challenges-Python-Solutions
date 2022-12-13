@@ -36,3 +36,28 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+from itertools import groupby
+
+
+class Solution:
+    ##Complete this function
+    # Function to calculate the longest consecutive ones
+    def maxConsecutiveOnes(self, N): 
+        result = max(len(list(group)) for value, group in groupby(bin(N)[2::]) if value == '1')
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().maxConsecutiveOnes(N = 14))                 # 3
+    print(Solution().maxConsecutiveOnes(N = 222))                # 4
+    print(Solution().maxConsecutiveOnes(N = 927))                # 5
+    print(Solution().maxConsecutiveOnes(N = 384))                # 2
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.77
+
+
+#%%
