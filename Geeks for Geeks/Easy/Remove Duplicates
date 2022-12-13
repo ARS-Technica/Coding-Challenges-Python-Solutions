@@ -51,3 +51,20 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def removeDups(self, S):
+        result = [char for idx, char in enumerate(S) if char not in S[:idx]] 
+        return "".join(result)
+
+
+if __name__ == "__main__":
+    print(Solution().removeDups(S = "zvvo"))            # "zvo"
+    print(Solution().removeDups(S = "gfg"))             # gf
+
+
+# Time Limit Exceeded
+
+
+#%%
