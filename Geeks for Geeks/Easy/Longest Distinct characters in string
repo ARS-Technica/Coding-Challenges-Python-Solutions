@@ -7,6 +7,10 @@ Given a string S, find length of the longest substring with all distinct charact
 """
 
 
+# Similar to Leetcode exercise 3. Longest Substring Without Repeating Characters
+# Sliding Window algorithm
+
+
 class Solution:
     ##Complete this function
     # Function to calculate the longest consecutive ones
