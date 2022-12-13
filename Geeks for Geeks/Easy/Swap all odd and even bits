@@ -1,0 +1,44 @@
+"""
+Swap all odd and even bits
+Easy
+https://practice.geeksforgeeks.org/problems/swap-all-odd-and-even-bits-1587115621/1
+
+Given an unsigned integer N. The task is to swap all odd bits with even bits.
+For example, if the given number is 23 (00010111), it should be converted to 43(00101011).
+Here, every even position bit is swapped with an adjacent bit on the right
+side(even position bits are highlighted in the binary representation of 23),
+and every odd position bit is swapped with an adjacent on the left side.
+"""
+
+
+class Solution:    
+    ##Complete this function
+    #Function to swap odd and even bits.
+    def swapBits(self, n):
+        n = bin(n)[2::]
+        print(n)
+        evens = []
+        odds = []
+
+        for idx, digit in enumerate(n):
+            if idx & 1 == 0:
+                evens.append(digit)
+            else:
+                odds.append(digit)
+
+        print(evens, odds)
+        result = list(zip(*odds, *evens) )
+        result = ''.join(result[0])
+        print(result)
+        return int(result, 2)
+
+
+if __name__ == "__main__":
+    print(Solution().swapBits(n = 23))            # 43
+    print(Solution().swapBits(n = 2))             # 1
+
+
+# Failed. Truncates binary number.
+
+
+#%%
