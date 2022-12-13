@@ -32,3 +32,22 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    def removeDups(self, S):
+        result = []
+        S = [result.append(character) for character in S if character not in result]
+        return "".join(result)
+
+
+if __name__ == "__main__":
+    print(Solution().removeDups(S = "zvvo"))            # "zvo"
+    print(Solution().removeDups(S = "gfg"))             # gf
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.61
+
+
+#%%
