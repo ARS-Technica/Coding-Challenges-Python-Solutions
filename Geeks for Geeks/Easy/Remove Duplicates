@@ -1,0 +1,34 @@
+"""
+Remove Duplicates
+Easy
+https://practice.geeksforgeeks.org/problems/remove-duplicates3034/1 
+
+Given a string without spaces, the task is to remove duplicates from it.
+
+Note: The original order of characters must be kept the same. 
+"""
+
+
+class Solution:
+    def removeDups(self, S):
+        result = []
+        used_characters = set()
+
+        for character in S:
+            if character not in used_characters:
+                result.append(character)
+                used_characters.add(character)
+
+        return "".join(result)
+
+
+if __name__ == "__main__":
+    print(Solution().removeDups(S = "zvvo"))            # "zvo"
+    print(Solution().removeDups(S = "gfg"))             # gf
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.11
+
+
+#%%
