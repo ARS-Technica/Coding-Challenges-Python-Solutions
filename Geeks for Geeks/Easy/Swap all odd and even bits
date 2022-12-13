@@ -42,3 +42,31 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:    
+    ##Complete this function
+    #Function to swap odd and even bits.
+    def swapBits(self, n):
+        binary = list(bin(n)[2::])
+        nearest_byte = ['0'] * (8 - len(binary) % 8)
+        new_binary = nearest_byte + binary
+        result = []
+
+        for idx in range(1, len(new_binary), 2):
+            result.append(new_binary[idx])
+            result.append(new_binary[idx - 1])
+
+        return int(''.join(result), 2)
+
+
+if __name__ == "__main__":
+    print(Solution().swapBits(n = 23))            # 43
+    print(Solution().swapBits(n = 2))             # 1
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.8
+
+
+#%%
