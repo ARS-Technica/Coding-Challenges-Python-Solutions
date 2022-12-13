@@ -1,0 +1,39 @@
+"""
+Longest Distinct characters in string
+Easy
+https://practice.geeksforgeeks.org/problems/longest-distinct-characters-in-string5848/1
+
+Given a string S, find length of the longest substring with all distinct characters. 
+"""
+
+
+class Solution:
+    ##Complete this function
+    # Function to calculate the longest consecutive ones
+    def longestSubstrDistinctChars(self, S):
+        left = 0
+        length = len(S)
+        result = 0
+        window  = set()
+
+        for right in range(length):
+            while S[right] in window:
+                window.remove(S[left])
+                left += 1
+
+            window.add(S[right])
+            result = max(result, right - left + 1)    
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().longestSubstrDistinctChars(S = "geeksforgeeks"))           # 7
+    print(Solution().longestSubstrDistinctChars(S = "aaa"))                     # 1 
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.08
+
+
+#%%
