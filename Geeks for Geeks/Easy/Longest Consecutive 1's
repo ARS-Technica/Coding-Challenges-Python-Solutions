@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 """
 Longest Consecutive 1's
 Easy
-https://practice.geeksforgeeks.org/problems/longest-consecutive-1s-1587115620/1
+https://practice.geeksforgeeks.org/problems/longest-consecutive-1s-1587115620/1 
 
 Given a number N. Find the length of the longest consecutive 1s in its binary representation.
 """
@@ -58,6 +59,43 @@ if __name__ == "__main__":
 
 # Problem Solved Successfully
 # Total Time Taken: 0.77
+
+
+#%%
+
+
+# Not mine.
+# https://discuss.geeksforgeeks.org/comment/a5e80af5bb162e6f64a2bffa3b1ad965
+
+
+class Solution:
+    ##Complete this function
+    # Function to calculate the longest consecutive ones
+    def maxConsecutiveOnes(self, N): 
+        result = 0
+
+        while N > 0:
+            if N & 1:
+                count = 0
+                while N & 1:
+                    count += 1
+                    N >>= 1
+
+                result = max(count, result)
+
+            N >>= 1
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().maxConsecutiveOnes(N = 14))                 # 3
+    print(Solution().maxConsecutiveOnes(N = 222))                # 4
+    print(Solution().maxConsecutiveOnes(N = 927))                # 5
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.71
 
 
 #%%
