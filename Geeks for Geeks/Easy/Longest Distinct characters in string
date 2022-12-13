@@ -37,3 +37,34 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+class Solution:
+    ##Complete this function
+    # Function to calculate the longest consecutive ones
+    def longestSubstrDistinctChars(self, S):
+        left = 0 
+        result = 0
+        window  = {}
+
+        for right, char in enumerate(S):
+            if char in window and left <= window[char]:
+                left = window[char] + 1
+            else:
+                result = max(result, right - left + 1)
+
+            window[char] = right
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().longestSubstrDistinctChars(S = "geeksforgeeks"))           # 7
+    print(Solution().longestSubstrDistinctChars(S = "aaa"))                     # 1 
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.05
+
+
+#%%
