@@ -68,3 +68,24 @@ if __name__ == "__main__":
 
 
 #%%
+
+
+from collections import OrderedDict
+
+
+class Solution:
+    def removeDups(self, S):
+        result = list(OrderedDict.fromkeys(S))
+        return "".join(result)
+
+
+if __name__ == "__main__":
+    print(Solution().removeDups(S = "zvvo"))            # "zvo"
+    print(Solution().removeDups(S = "gfg"))             # gf
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.12
+
+
+#%%
