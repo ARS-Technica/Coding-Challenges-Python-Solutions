@@ -1,0 +1,47 @@
+"""
+Count distinct elements in every window
+Easy
+https://practice.geeksforgeeks.org/problems/count-distinct-elements-in-every-window/1
+
+Given an array of integers and a number K. Find the count of distinct elements
+in every window of size K in the array.
+"""
+
+
+class Solution:
+    def countDistinct(self, A, N, K):
+        result = []
+
+        for idx in range(0, N - (K-1)):
+            window = A[idx : idx + K]
+            result.append(len(set(window)))
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().countDistinct(N = 7, K = 4, A = [1,2,1,3,4,2,3]))              # 3 4 4 3
+    print(Solution().countDistinct(N = 3, K = 2, A = [4,1,1]))                      # 2 1
+
+
+# Time Limit Exceeded
+
+
+#%%
+
+
+class Solution:
+    def countDistinct(self, A, N, K):
+        result = [len(set(A[idx : idx + K])) for idx in range(0, N - (K-1))]
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().countDistinct(N = 7, K = 4, A = [1,2,1,3,4,2,3]))              # 3 4 4 3
+    print(Solution().countDistinct(N = 3, K = 2, A = [4,1,1]))                      # 2 1
+
+
+# Time Limit Exceeded
+
+
+#%%
