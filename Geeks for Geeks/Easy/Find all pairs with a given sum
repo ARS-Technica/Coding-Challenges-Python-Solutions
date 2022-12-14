@@ -1,0 +1,46 @@
+"""
+Find all pairs with a given sum
+Easy
+https://practice.geeksforgeeks.org/problems/find-all-pairs-whose-sum-is-x5808/1
+
+Given two unsorted arrays A of size N and B of size M of distinct elements, the
+task is to find all pairs from both arrays whose sum is equal to X.
+
+Note: All pairs should be printed in increasing order of u. For eg. for two
+pairs (u1,v1) and (u2,v2), if u12 then
+
+(u1,v1) should be printed first else second.
+"""
+
+
+# Time complexity: O(NlogN) | Space complexity: O(N)
+
+
+class Solution:
+    def allPairs(self, A, B, N, M, X):
+        A = sorted(A)
+        result = []
+
+        for num in range(N):
+            remainder = X - A[num]
+            if remainder in B:
+                result.append([A[num], remainder])
+
+        return result
+
+
+if __name__ == "__main__":
+    print(Solution().allPairs(A = [1, 2, 4, 5, 7], B = [5, 6, 3, 4, 8], N = 5, M = 5, X = 9))            
+    # 1 8
+    # 4 5 
+    # 5 4
+    print(Solution().allPairs(A = [-1, -2, 4, -6, 5, 7], B = [6, 3, 4, 0], N = 6, M = 4, X = 8))            
+    # 4 4 
+    # 5 3
+
+
+# Problem Solved Successfully
+# Total Time Taken: 0.29
+
+
+#%%
