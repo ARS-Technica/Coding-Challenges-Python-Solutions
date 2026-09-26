@@ -1,0 +1,15 @@
+"""
+Contains Duplicates
+
+Given an integer list nums, return True if any value appears at least twice in the list, and return False
+if every element is distinct.
+"""
+
+def contains_duplicate(nums):
+    return len(nums) != len(set(nums))
+
+
+example = [1, 2, 3, 4, 4]
+print(contains_duplicate(example))
+# Expected Output: True
+
