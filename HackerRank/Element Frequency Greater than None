@@ -1,0 +1,30 @@
+"""
+Element Frequency Greater than None
+
+Given a list of integers nums and an integer n, 
+return a dictionary with elements as keys and their
+frequencies as values, but only include elements 
+whose frequency is greater than n.
+"""
+
+from collections import Counter
+
+def frequency_greater_than_n(nums, n):
+    frequency = dict(Counter(nums))
+    result = {}
+
+    print(frequency)
+
+    for num, freq in frequency.items():
+        if freq > n:
+            result[num] = freq
+
+    return result
+
+
+nums = [1, 2, 3, 1, 2, 3, 1, 2]
+n = 2
+
+print(frequency_greater_than_n(nums, n))
+# Expected Output: {1: 3, 2: 3}
+
