@@ -1,0 +1,31 @@
+"""
+Patient List
+
+Write a function get_patients() that takes
+in the name of a doctor doctor and a dictionary patients that maps patients to doctors and returns a list of all patients of that doctor.
+"""
+
+def get_patients(doctor, patients):
+    results = []
+
+    for key, value in patients.items():
+        if value == doctor:
+            results.append(key)
+
+    return results
+
+doctor = "Dr. Grey"
+patients = { "Jane Doe": "Dr. Grey", "John Doe": "Dr. Bailey", "Alexandra Stevens": "Dr. Grey", "Paulo Freire": "Dr. Stevens"}
+
+print(get_patients(doctor, patients))
+# Expected Output: ["Jane Doe", "Alexandra Stevens"]
+
+"""
+doctor = "Dr. Banner"
+patients = {"Ethan Hunt": "Dr. Banner",
+"James Bond": "Dr. Banner", "Bruce Wayne": "Dr. Banner"}
+
+print(get_patients(doctor, patients))
+# Expected Output: ["Ethan Hunt", "James Bond", "Bruce Wayne"]
+"""
+
