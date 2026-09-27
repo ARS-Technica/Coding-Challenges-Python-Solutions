@@ -1,0 +1,19 @@
+"""
+Adding Entries to a Dictionary
+"""
+
+def expand_dictionary(key, value, dictionary):
+    if key in dictionary:
+        dictionary[key].append(value)
+    else:
+        dictionary[key] = [value]
+
+    return dictionary
+
+
+dictionary = {'a': [1, 2], 'b': [3,4]}
+output = expand_dictionary('c', 5, dictionary)
+print(output)
+
+# Expected Output: {'a': [1, 2], 'b': [3, 4], 'c': [5]}
+
